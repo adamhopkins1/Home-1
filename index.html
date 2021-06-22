@@ -5,7 +5,71 @@
     <title>90's Emo Rock Bands!</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-        body,html {
+
+        .wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 100vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  overflow-x: hidden;
+  /* Enable scrolling on the page. */
+  overflow-y: auto;
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
+}
+
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  height: 100vh;
+
+  /* For text formatting. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+}
+
+/* The styling for the static div. */
+.static {
+  background: red;
+}
+
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bgimg-1::after {
+  background-image: url("SUNNY_DAY_REAL_ESTATE_T.B.A.\ 2B-\ 2BDIARY-515654.jpg");
+}
+
+.bgimage-2::after {
+  background-image:url("modo_0025_atdi_1_1920x1080-ca0a50.jpg");
+}
+
+.bgimage-3::after {
+  background-image:url("9-kJKuUzH4vU32zZBoSBH24Tpe_xFHTr29s7_bAjp-E.jpg")
+}
+
+         body,html {
             height:100%;
             margin:0;
             font:400 15px/1.8 "font-family: 'Staatliches', cursive";
@@ -19,14 +83,15 @@
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
-        }
-        .bgimg-1 {
+        } 
+        
+         .bgimg-1 {
             background-image:url("SUNNY_DAY_REAL_ESTATE_T.B.A.\ 2B-\ 2BDIARY-515654.jpg");
             min-height:100%;
         }
 
         .bgimg-2 {
-            background-image:url("modo_0025_atdi_1_1920x1080-ca0a50.jpg");
+            background-image:url("maxresdefault.jpg");
             min-height:400px;
         }
 
@@ -55,15 +120,13 @@
             letter-spacing:5px;
             text-transform:uppercase;
             font:20px "'Staatliches', cursive";
-            color:#111;
+            color:#f7f7f7;
         }
 
-        /* Turn off parallax scrolling for tablets and phones */
+        /* Turn off parallax scrolling for tablets and phones
         @media only screen and (max-device-width:1024px){
             .bgimg-1, .bgimg-2, .bgimg-3 {
-                background-attachment:scroll;
-            }
-        }
+                background-attachment:scroll; */
     </style>
 </head>
 <body>
@@ -74,7 +137,7 @@
         </div>
     </div>
 
-    <div style="color:#777; background-color: white; text-align:center;padding:50px 80px; text-align:justify;">
+    <div style="color:#777; background-color: #282E34; text-align:center;padding:50px 80px; text-align:justify;">
         <h3 style="text-align:center;">"In Circles"</h3>
         <figure>
             <blockquote cite="https://songmeanings.com/songs/view/41783/">
@@ -127,14 +190,14 @@
         </figure>
     </div>
 
-    <!-- <div class="bgimg-2">
+    <div class="bgimg-2">
         <div class="caption">
-        <span class="border" style="background-color:transparent;font-size:25px;color:#f7f7f7;">Scroll Up</span>
+        <span class="border" style="background-color:transparent;font-size:25px;color:#282E34;"></span>
         </div>
-    </div> -->
+    </div>
 
-    <div style="position:relative;">
-        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align:justify;">
+    
+        <div style="color:#777;background-color:#282E34;text-align:center;padding:50px 80px;text-align:justify;">
             <h3 style="text-align:center;">"Rascuache"</h3>
             <figure>
                 <blockquote cite="https://www.azlyrics.com/lyrics/atthedrivein/rascuache.html">
@@ -177,12 +240,12 @@
 
     <div class="bgimg-3">
         <div class="caption">
-            <span class="border" style="background-color:transparent; font-size:25px;color:f7f7f7;">Scroll DOWN</span>
+            <span class="border" style="background-color:transparent; font-size:25px;color: #f7f7f7;;"></span>
         </div>
     </div>
 
     <div style="position:relative;">
-    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align:justify;">
+    <div style="color:#777;background-color:#282E34;text-align:center;padding:50px 80px;text-align:justify;">
         <h3 style="text-align:center;">"Do You Believe In What You Want?"</h3>
         <figure>
             <blockquote cite="https://www.azlyrics.com/lyrics/jimmyeatworld/believeinwhatyouwant.html">Jimmy Eat World
